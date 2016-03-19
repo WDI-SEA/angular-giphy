@@ -34,7 +34,7 @@
         </div>
         <button type="submit" ng-click="search()" class="btn btn-primary">Search</button>
       </form>
-        <div infinite-scroll="search()" infinite-scroll-distance="3">
+        <div infinite-scroll="scrollMore()">
           <div id="results" ng-repeat="gif in gifs">
             <a href="{{ gif.url }}">
               <img src="{{ gif.images.fixed_width.url }}" />

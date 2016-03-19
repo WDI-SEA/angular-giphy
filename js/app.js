@@ -23,4 +23,23 @@ app.controller("SearchCtrl", ['$scope', '$http', function($scope, $http) {
     });
   }
 
+  $scope.scrollMore = function() {
+    var req = {
+      url: 'http://api.giphy.com/v1/gifs/search',
+      method: 'GET',
+      params: {
+        q: $scope.searchTerm,
+        api_key: "dc6zaTOxFJmzC",
+        offset: "25"
+      }
+    };
+
+    $http(req).then(function success(res) {
+      $scope.gifs.push(res.data.data);
+      console.log($scope.gifs);
+    }, function error(res) {
+      console.log(res);
+    });
+  }
+
 }]);
