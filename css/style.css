@@ -1,0 +1,15 @@
+div.well {
+  overflow: hidden;
+}
+
+#results {
+  width: 100%;
+}
+
+img {
+  height: 350px;
+}
+
+div {
+  display: inline;
+}
