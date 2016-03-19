@@ -30,12 +30,12 @@ app.controller("SearchCtrl", ['$scope', '$http', function($scope, $http) {
       params: {
         q: $scope.searchTerm,
         api_key: "dc6zaTOxFJmzC",
-        offset: "25"
+        offset: 25
       }
     };
 
     $http(req).then(function success(res) {
-      $scope.gifs.push(res.data.data);
+      $scope.gifs = $scope.gifs.push(res.data.data);
       console.log($scope.gifs);
     }, function error(res) {
       console.log(res);
