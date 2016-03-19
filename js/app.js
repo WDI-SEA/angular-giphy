@@ -1,4 +1,4 @@
-var app = angular.module('GiphyApp', []);
+var app = angular.module('GiphyApp', ['infinite-scroll']);
 
 app.controller("SearchCtrl", ['$scope', '$http', function($scope, $http) {
   $scope.searchTerm='';
