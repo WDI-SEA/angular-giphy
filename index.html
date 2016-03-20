@@ -8,7 +8,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
     <script src="js/app.js"></script>
 
@@ -21,18 +21,30 @@
     <![endif]-->
   </head>
   <body ng-app="GiphyApp">
-    <div class="container">
+    <div class="container" ng-controller="SearchCtrl">
       <h1 class="text-center">Welcome to Giphy Search</h1>
 
-      <form class="form-inline">
+      <form ng-submit="search()" class="form-inline">
         <div class="form-group">
-          <label for="search">Search</label>
-          <input type="text" placeholder="Search for GIFs" id="search" class="form-control">
+          <label for="search">SEARCH</label>
+          <input type="text" ng-model="searchTerm" ng-model-options="{debounce: 500}" placeholder="Search for GIFs" id="search" class="form-control">
         </div>
-        <button type="submit" class="btn btn-primary">Search</button>
+        <!-- <button type="submit" class="btn btn-primary">Search</button> -->
       </form>
 
-      <div id="results"></div>
+    <div class="well">
+      <div class="row-fluid">
+        <div class="span12">
+          <div style="overflow:hidden;width:90%;">
+            <div style="width:1000px;">
+              <div id="results" ng-repeat="gif in gifs">
+                <img src="{{ gif.images.fixed_height.url }}" class="img-responsive">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     </div>
   </body>
 </html>

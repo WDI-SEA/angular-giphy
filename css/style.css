@@ -1,0 +1,25 @@
+body {
+  background-color: black;
+  color: #33ff33;
+}
+
+#results {
+  display:inline-block;
+  margin-left: 6em;
+  margin-bottom: 1em;
+}
+
+.well {
+  margin-top: 2em;
+  background-color: #999999
+}
+
+/*.btn-primary {
+  background-color: #33ff33;
+  border-color: #6CBA2C;
+} 
+
+
+.btn-primary:hover {
+  background-color: #AAD023;
+}*/
