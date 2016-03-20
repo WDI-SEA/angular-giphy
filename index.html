@@ -13,6 +13,7 @@
     <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
     <script type='text/javascript' src='infinite_scroll.min.js'></script>
+    <script type="text/javascript" src="masonry.pkgd.min.js"></script>
     <script src="js/app.js"></script>
 
 
@@ -24,19 +25,21 @@
     <![endif]-->
   </head>
   <body ng-app="GiphyApp">
-    <div ng-controller="SearchCtrl">
-      <div class="container">
-        <h1 class="text-center">Welcome to Giphy Search</h1>
-        <form class="form-inline" ng-submit="getGiphies()">
-            <div class="form-group">
-              <label for="search"></label>
-              <input type="text" ng-model="searchTerm" ng-change="getGiphies()" placeholder="Search for GIFs" id="search" class="form-control">
-            </div>
-        </form>
-      </div>
-       <div id="results">
-        <div ng-repeat="giphy in giphies track by $index" infinite-scroll="getGiphies()">
-          <img ng-src="{{giphy.images.original.url}}">
+    <div id="opacity">
+      <div ng-controller="SearchCtrl">
+        <div class="container">
+          <p><img src="images/giphysearch.png"></p>
+            <form class="form-inline" ng-submit="getGiphies()">
+              <div class="form-group">
+                <label for="search"></label>
+                <input type="text" ng-model="searchTerm" ng-change="getGiphies()" placeholder="Search for GIFs" id="search" class="form-control">
+              </div>
+          </form>
+        </div>
+         <div id="results">
+          <p class="giphy" ng-repeat="giphy in giphies track by $index" infinite-scroll="getGiphies()">
+            <img ng-src="{{giphy.images.original.url}}">
+          </p>
         </div>
       </div>
     </div>
