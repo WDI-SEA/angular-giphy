@@ -8,6 +8,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
     <script src="js/app.js"></script>
@@ -21,18 +22,37 @@
     <![endif]-->
   </head>
   <body ng-app="GiphyApp">
-    <div class="container">
-      <h1 class="text-center">Welcome to Giphy Search</h1>
+    <div class="container" ng-controller="SearchCtrl">
+      <h1 class="text-center">Search for Giphys</h1>
 
-      <form class="form-inline">
+      <form class="form-inline centered">
         <div class="form-group">
           <label for="search">Search</label>
-          <input type="text" placeholder="Search for GIFs" id="search" class="form-control">
+          <input type="text" ng-model="searchTerm" placeholder="Search for GIFs" id="search" class="form-control">
         </div>
-        <button type="submit" class="btn btn-primary">Search</button>
+        <button type="submit" ng-click="search()" class="btn btn-info ">Search</button>
       </form>
 
-      <div id="results"></div>
+      <ul>
+        <div id="results" ng-repeat="giphy in giphys">
+          <div class="giphys centered">  
+            <a href="{{ giphy.url }}">
+              <!-- <li>{{ giphy.url }}</li> -->
+                <img src="{{ giphy.images.fixed_height.url }}" />
+            </a>
+          </div>  
+        </div>
+      </ul>
     </div>
   </body>
 </html>
+
+
+
+
+
+
+
+
+
+
