@@ -5,13 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Giphy Search</title>
-
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="//code.jquery.com/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
+    <script src="ngInfiniteScroll-1.0.0/build/ng-infinite-scroll.js"></script>
     <script src="js/app.js"></script>
-
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -20,19 +19,28 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body ng-app="GiphyApp">
-    <div class="container">
-      <h1 class="text-center">Welcome to Giphy Search</h1>
+  <body ng-app='GiphyApp'>
+    <div class='container' ng-controller='GiphyCtrl'>
+      <h1 class='text-center'>Welcome to Giphy Search</h1>
 
-      <form class="form-inline">
-        <div class="form-group">
-          <label for="search">Search</label>
-          <input type="text" placeholder="Search for GIFs" id="search" class="form-control">
+      <form class='form-inline text-center' ng-submit='search()'>
+        <div class='form-group'>
+          <label for='search'>Search</label>
+          <input type='text' placeholder='Search for GIFs' id='search' class='form-control' ng-model='searchTerm'>
+          <input type='submit' class='btn btn-primary'>
         </div>
-        <button type="submit" class="btn btn-primary">Search</button>
       </form>
-
-      <div id="results"></div>
+      <br>
+      <br>
+      <br>
+      <div  infinite-scroll="nextPage()" infinite-scroll-distance="3">
+        <div id='results' ng-repeat='gif in gifs track by $index' class='text-center'>
+          <img ng-src='{{ gif.images.original.url }}'>
+          <br>
+          <br>
+        </div>
+      </div>
+      <br>
     </div>
   </body>
 </html>
