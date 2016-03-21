@@ -8,6 +8,9 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Passion+One:400,900,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
     <script src="js/app.js"></script>
@@ -21,18 +24,28 @@
     <![endif]-->
   </head>
   <body ng-app="GiphyApp">
-    <div class="container">
-      <h1 class="text-center">Welcome to Giphy Search</h1>
+    <div class="container" ng-controller="GiphyCtrl">
+      <div class="background_container">
+        <h1 class="text-center title">Welcome to Giphy Search</h1>
 
-      <form class="form-inline">
-        <div class="form-group">
-          <label for="search">Search</label>
-          <input type="text" placeholder="Search for GIFs" id="search" class="form-control">
-        </div>
-        <button type="submit" class="btn btn-primary">Search</button>
-      </form>
+        <form class="form-inline" ng-submit="search()">
+          <div class="form-group" >
+            <div class="search_container">
+              <label for="search">Search</label>
+              <input type="text" placeholder="Search for GIFs" id="search" class="form-control" ng-model="searchTerm">
+              <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+            <div class="well giphy_container" ng-repeat="giph in giphy track by giph.id">
+              <img class="giphy_img" ng-src='{{giph.images.original.url}}'/>
+              <br/>
+              <a ng-href="{{giph.url}}">{{giph.url}}</a>
+            </div>
+        
+          </div>
+          
+        </form>
 
-      <div id="results"></div>
-    </div>
+        <div id="results"></div>
+      </div>
   </body>
 </html>
