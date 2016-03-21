@@ -1,0 +1,98 @@
+body{
+	color: #fff;
+	font-weight: bold;
+	font-family: 'Passion One', cursive;
+	font-weight: 900;
+	background-color: #99ffff;
+}
+
+.title{
+	font-size: 3.5em;
+	text-shadow: 2px 2px #000;
+	text-decoration: underline;
+}
+
+.container{
+	border-right: 1px solid #f5f5f5;
+	border-left: 1px solid #f5f5f5;
+}
+
+.well:nth-child(1n){
+	position: relative;
+	top: 300px;
+}
+
+.well, .background_container{
+	margin-top: 5%;
+	 box-shadow: 1px 1px 0px #999,
+                2px 2px 0px #999,
+                3px 3px 0px #999,
+                4px 4px 0px #999,
+                5px 5px 0px #999,
+                6px 6px 0px #999,
+                7px 7px 0px #999,
+                8px 8px 0px #999,
+                9px 9px 0px #999,
+                10px 10px 0px #999,
+                11px 11px 0px #999,
+                12px 12px 0px #999,
+                13px 13px 0px #999,
+                14px 14px 0px #999,
+                15px 15px 0px #999,
+                16px 16px 0px #999,
+                17px 17px 0px #999,
+                18px 18px 0px #999,
+                19px 19px 0px #999,
+                20px 20px 0px #999,
+                21px 21px 0px #999,
+                22px 22px 0px #999,
+                23px 23px 0px #999,
+                24px 24px 0px #999,
+                25px 25px 0px #999;
+}
+
+.form-group{
+	width: 100%;
+	text-align: center;
+}
+
+.search_container{
+	text-shadow: 2px 2px #000;
+	font-size: 1.5em;
+	width: 300px;
+	margin: 0 auto;
+	padding: 2% 2%;
+	background-color: rgba(0,0,0,.3);
+	border: 2px solid #fff;
+	border-radius: 5%;
+}
+
+.btn{
+	border: 2px solid #fff !important;
+}
+
+.form-inline{
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.giphy_img{
+	width: 75%;
+	height: 75%;
+}
+
+.giphy_container a{
+	font-size: 1.2em;
+	text-decoration: underline;
+}
+
+.background_container{
+	width: 738px;
+	height: 492px;
+	margin: 0 auto;
+	border: 5px solid #fff;
+	background-image: url("../images/giphy.gif");
+	background-size: 738px 492px;
+	background-position: center;
+	background-repeat: no-repeat;
+}
