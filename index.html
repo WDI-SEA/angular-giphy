@@ -8,31 +8,36 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
     <script src="js/app.js"></script>
 
-
+    <link href='https://fonts.googleapis.com/css?family=Amatic+SC:700' rel='stylesheet' type='text/css'>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
   </head>
   <body ng-app="GiphyApp">
-    <div class="container">
-      <h1 class="text-center">Welcome to Giphy Search</h1>
-
+    <div ng-controller="GiphyCtrl" class="container">
+      <h1>Show me the GIF!</h1>
+      <div  id ="center" class="well well-sm">
+      <h2>Internet Rabbit-Hole engage:</h2>
       <form class="form-inline">
         <div class="form-group">
           <label for="search">Search</label>
-          <input type="text" placeholder="Search for GIFs" id="search" class="form-control">
+          <input ng-model="searchGif" type="text" placeholder="Search for GIFs" id="search" class="form-control">
         </div>
-        <button type="submit" class="btn btn-primary">Search</button>
+        <button ng-click="search()" type="submit" class="btn btn-primary">Search</button>
       </form>
-
-      <div id="results"></div>
+      </div>
+        <div id="results" ng-repeat="gif in gifResult"> <!-- simular to for each loop -->
+          <div class="well"><a href="{{gif.images.original.url}}"><img ng-src="{{gif.images.original.url}}" alt="Your Gif results" /></a></div>
+      </div>
     </div>
   </body>
 </html>
