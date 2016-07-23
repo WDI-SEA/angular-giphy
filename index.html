@@ -21,18 +21,22 @@
     <![endif]-->
   </head>
   <body ng-app="GiphyApp">
-    <div class="container">
+    <div class="container" ng-controller="SearchCtrl">
       <h1 class="text-center">Welcome to Giphy Search</h1>
 
-      <form class="form-inline">
+      <form class="form-inline" ng-submit="searchForGifs()">
         <div class="form-group">
           <label for="search">Search</label>
-          <input type="text" placeholder="Search for GIFs" id="search" class="form-control">
+          <input type="text" placeholder="Search for GIFs" id="search" class="form-control" ng-model="userSearch">
         </div>
         <button type="submit" class="btn btn-primary">Search</button>
       </form>
 
-      <div id="results"></div>
+      <div id="results" ng-repeat="giphy in giphyResults track by $index">
+        <div class="well">
+          <img ng-src="{{giphy.images.original.url}}">
+        </div>
+      </div>
     </div>
   </body>
 </html>
