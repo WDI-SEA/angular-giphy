@@ -26,7 +26,7 @@ app.controller('GiphySearch', ['$scope', '$http', function($scope,$http) {
 
   $scope.searchForMoreGifs = function() {
     $scope.page += 1;
-    $http.get('http://api.giphy.com/v1/gifs/search?', {
+    $http.get('https://api.giphy.com/v1/gifs/search?', {
       params: {
         q: $scope.userSearch,
         api_key: 'dc6zaTOxFJmzC',
