@@ -13,7 +13,7 @@ app.controller('SearchCtrl', ['$scope', '$http', function($scope, $http) {
     })
     .then(function success(res) {
       $scope.giphyResults = res.data.data;
-      console.log($scope.giphyResults);
+      $scope.userSearch = '';
     }, function error(res) {
       console.log(res);
     });
