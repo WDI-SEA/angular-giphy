@@ -7,9 +7,12 @@
     <title>Giphy Search</title>
 
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/style.css" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
+    <script type='text/javascript' src='js/infinitescroll.js'></script>
     <script src="js/app.js"></script>
 
 
@@ -21,18 +24,22 @@
     <![endif]-->
   </head>
   <body ng-app="GiphyApp">
-    <div class="container">
+    <div class="container" ng-controller="GiphySearch" infinite-scroll="myPagingFunction()" infinite-scroll-distance="3" >
+    {{2 + 2}}
       <h1 class="text-center">Welcome to Giphy Search</h1>
-
-      <form class="form-inline">
+      <form class="form-inline" ng-submit="search()">
         <div class="form-group">
           <label for="search">Search</label>
-          <input type="text" placeholder="Search for GIFs" id="search" class="form-control">
+          <input type="text" placeholder="Search for GIFs" id="search" class="form-control" ng-model="query">
         </div>
         <button type="submit" class="btn btn-primary">Search</button>
       </form>
 
-      <div id="results"></div>
+      <div id="results">
+        <div class="well" ng-repeat="giphy in giphys track by $index" ng-class="{foo: true}">
+          <img ng-src="{{giphy.images.fixed_height.url}}">
+        </div>
+      </div>
     </div>
   </body>
 </html>
