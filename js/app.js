@@ -1,8 +1,11 @@
-var app = angular.module('GiphyApp', ['infinite-scroll']);
+var app = angular.module('GiphyApp', ['infinite-scroll','ngclipboard']);
 
-app.controller('GiphySearch', ['$scope', '$http', function($scope,$http) {
+app.controller('GiphySearch', ['$scope', '$http' ,
+  function($scope,$http) {
 
-  $scope.userSearch = '';
+  $scope.userSearch = 'Cats';
+  $scope.loadMoreGifs = 10;
+  $scope.active = true;
 
   $scope.$watch('userSearch', function(newVal, oldVal) {
     console.log($scope.userSearch)
@@ -10,34 +13,30 @@ app.controller('GiphySearch', ['$scope', '$http', function($scope,$http) {
       params: {
         q: $scope.userSearch,
         api_key: 'dc6zaTOxFJmzC',
-        limit: 6
+        limit: 10
       }
     })
     .then(function success(response) {
-      console.log(response.data.data);
       $scope.giphyResults = response.data.data;
-
     }, function error(response) {
       console.log(response);
     });
   });
 
-  $scope.page = 0;
-
   $scope.searchForMoreGifs = function() {
-    $scope.page += 1;
+    console.log($scope.loadMoreGifs);
+    console.log('scope.numberOfGifs' + $scope.numberOfGifs);
     $http.get('https://api.giphy.com/v1/gifs/search?', {
       params: {
         q: $scope.userSearch,
         api_key: 'dc6zaTOxFJmzC',
-        limit: 6,
-        offset: $scope.page
+        limit:  $scope.loadMoreGifs
       }
     })
     .then(function success(response) {
-      console.log(response.data.data);
       $scope.giphyResults = response.data.data;
-
+      $scope.loadMoreGifs += 10;
+      console.log($scope.loadMoreGifs)
     }, function error(response) {
       console.log(response);
     });
