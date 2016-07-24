@@ -6,6 +6,7 @@ app.controller('GiphySearch', ['$scope', '$http' ,
   $scope.userSearch = 'Cats';
   $scope.loadMoreGifs = 10;
   $scope.active = true;
+  $scope.checkMark = 'Copied';
 
   $scope.$watch('userSearch', function(newVal, oldVal) {
     console.log($scope.userSearch)
@@ -24,8 +25,7 @@ app.controller('GiphySearch', ['$scope', '$http' ,
   });
 
   $scope.searchForMoreGifs = function() {
-    console.log($scope.loadMoreGifs);
-    console.log('scope.numberOfGifs' + $scope.numberOfGifs);
+    console.log('more gifs - ' + $scope.loadMoreGifs);
     $http.get('https://api.giphy.com/v1/gifs/search?', {
       params: {
         q: $scope.userSearch,
