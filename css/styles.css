@@ -8,7 +8,7 @@ body {
 }
 
 .smallerSearch {
-  width: 55%;
+  width: 60%;
   margin: 0 auto;
   color: white;
   background-color: #191818;
@@ -40,14 +40,16 @@ body {
   width: 20px;
   height: 20px;
   box-shadow: 0 0 2em #FFF70E;
-  background-image: url('assets/clippy.svg');
+/*  background: url('assets/clippy.png');
+  background-repeat: no-repeat;*/
 }
 
 .smallButtonInactive {
   width: 20px;
   height: 20px;
   box-shadow: 0 0 1em #545FFF;
-  background-image: url('assets/clippy.svg');
+/*  background: url ('assets/clippy.png');
+  background-repeat: no-repeat;*/
 }
 
 

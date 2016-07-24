@@ -27,8 +27,8 @@
         <div id="results" ng-repeat="giphys in giphyResults track by $index">
 
           <div class="well center shadow">
-            <input id="targetText" value="{{ giphys.images.fixed_width.url }}" class="shadow smallerSearch" ngclipboard>
-            <button ngclipboard data-clipboard-target="#targetText"
+            <input id="targetText{{$index}}" value="{{ giphys.bitly_url }}" class="shadow smallerSearch" ngclipboard>
+            <button ngclipboard data-clipboard-target="#targetText{{$index}}"
                     ng-click="active = !active"
                     ng-class="{ 'smallButtonActive' : !active, 'smallButtonInactive' : active }">
             </button>
