@@ -1,0 +1,56 @@
+body {
+  background-color: black;
+}
+
+.header {
+  color: white;
+  font-weight: bold;
+}
+
+.smallerSearch {
+  width: 60%;
+  margin: 0 auto;
+  color: white;
+  background-color: #191818;
+  text-align: center;
+  font-weight: bold
+}
+
+.center {
+  align-content: center;
+  text-align: center;
+  background-color: #191818;
+  border-radius: 10px;
+  border: 1px solid;
+  width: 350px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.shadow {
+  box-shadow: 0 0 1em #545FFF;
+  margin-top: 8px;
+}
+
+.ngRepeatDiv {
+  display: inline;
+}
+
+.smallButtonActive {
+  width: 20px;
+  height: 20px;
+  box-shadow: 0 0 2em #FFF70E;
+/*  background: url('assets/clippy.png');
+  background-repeat: no-repeat;*/
+}
+
+.smallButtonInactive {
+  width: 20px;
+  height: 20px;
+  box-shadow: 0 0 1em #545FFF;
+/*  background: url ('assets/clippy.png');
+  background-repeat: no-repeat;*/
+}
+
+
+
