@@ -9,7 +9,7 @@ app.controller('GiphySearch', ['$scope', '$http' ,
 
   $scope.$watch('userSearch', function(newVal, oldVal) {
     console.log($scope.userSearch)
-    $http.get('http://api.giphy.com/v1/gifs/search?', {
+    $http.get('https://api.giphy.com/v1/gifs/search?', {
       params: {
         q: $scope.userSearch,
         api_key: 'dc6zaTOxFJmzC',
