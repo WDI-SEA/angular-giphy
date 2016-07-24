@@ -1,0 +1,12 @@
+.flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: baseline;
+  align-self: flex-start;
+}
+
+.results {
+  margin: 10px 0;
+}
