@@ -1,0 +1,20 @@
+body {
+  text-align: center;
+  color: white;
+  background-color: #267;
+}
+
+img {
+  width: 300px;
+  height: 200px;
+}
+
+.well {
+  background-color: #256;
+  border-color: #267;
+  display: inline-block;
+}
+
+.form-inline {
+  padding-bottom: 50px;
+}
