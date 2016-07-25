@@ -27,10 +27,13 @@
       </form>
       <!-- Search Results -->
       <div id="results" ng-repeat="result in results track by $index">
-        <div class="well result">
+        <div ng-hide="hide" class="well result">
           <img src="{{ result.images.fixed_height.url }}">
         </div>
         <hr>
+      </div>
+      <div ng-hide="patientBear" class="bear">
+        <img src="http://new2.fjcdn.com/comments/Mfw+still+waiting+for+the+gif+to+load+_cf14b8b06d0be4651e41d88734d3920b.jpg">
       </div>
     </div>
   </body>

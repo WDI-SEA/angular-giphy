@@ -10,3 +10,12 @@
   text-align: center;
   background-color: #E65100;
 }
+
+.container {
+  position: relative;
+}
+.bear {
+  position: absolute;
+  margin: 100px auto;
+
+}
