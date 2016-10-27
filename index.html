@@ -37,7 +37,10 @@
 
 			<div class="alert alert-danger" ng-if="error">{{error}}</div>
 
-			<div id="results" style="display: inline-block; padding: 20px;" ng-repeat="item in gifs track by item.id"><img ng-src="{{item.images.fixed_height.url}}"></div> 
+			<div id="results" style="display: inline-block; padding: 20px;" ng-repeat="item in gifs track by $index" infinite-scroll='addMoreItems()' body-scroll="0">
+				<img ng-src="{{item.images.fixed_height.url}}">
+			</div> 
+
 
 		</div>
 	</body>

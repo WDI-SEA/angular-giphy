@@ -26,14 +26,15 @@ app.controller("HomeCtrl", ["$scope", "$http", function($scope, $http) {
 		$http({
 			url: "http://api.giphy.com/v1/gifs/search?q=" + $scope.searchInput + "&api_key=dc6zaTOxFJmzC",
 			method: "GET",
-			limit: 10,
-			offset: $scope.offset,
 			params: {
-				// q: $scope.searchInput,
+				q: $scope.searchInput,
+				limit: 10
+
 				// api_key:'dc6zaTOxFJmzC'
 			}
 		}).then(function success(results){
 			$scope.error = "";
+			$scope.offset = 10;
 			$scope.gifs = results.data.data;
 			console.log('here1 ' + $scope.gifs);
 		}, function error(res){
@@ -42,8 +43,21 @@ app.controller("HomeCtrl", ["$scope", "$http", function($scope, $http) {
 	}
 
 	$scope.addMoreItems = function() {
-		$scope.offset = $scope.offset + 25;
-		$scope.search();
+		console.log('scroll!!!');
+		$scope.offset = $scope.offset + 1;
+		$http({
+			url: "http://api.giphy.com/v1/gifs/search?q=" + $scope.searchInput + "&api_key=dc6zaTOxFJmzC",
+			method: "GET",
+			params: {
+				q: $scope.searchInput,
+				offset: $scope.offset,
+				limit: 1
+
+				// api_key:'dc6zaTOxFJmzC'
+			}
+		}).then(function success(results){
+			$scope.gifs = $scope.gifs.concat(results.data.data);
+		});
 	}
 
 
