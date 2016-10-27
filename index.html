@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="GiphyApp">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,19 +20,24 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body ng-app="GiphyApp">
+  <body ng-controller="giphyCtrl">
     <div class="container">
       <h1 class="text-center">Welcome to Giphy Search</h1>
 
       <form class="form-inline">
         <div class="form-group">
           <label for="search">Search</label>
-          <input type="text" placeholder="Search for GIFs" id="search" class="form-control">
+          <input type="text" name="searchTerm" class="form-control" ng-model="searchTerm" placeholder="Search for GIFs">
         </div>
-        <button type="submit" class="btn btn-primary">Search</button>
+        <button type="submit" ng-click="search()" class="btn btn-primary">Search</button>
       </form>
 
-      <div id="results"></div>
+      <div class="results" ng-if="giphs.length > 0">
+        <h2>Search Results</h2>
+        <div class="well" ng-repeat="giph in giphs track by $index">
+          <img ng-src="{{giph.images.fixed_height.url}}">
+        </div>
+      </div>
     </div>
   </body>
 </html>
