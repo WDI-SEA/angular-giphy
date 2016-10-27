@@ -22,7 +22,7 @@ app.controller("GiphyCtrl", ['$scope', "$http", function($scope, $http) {
         limit: 15
       }
     }).then(function success(res) {
-      $scope.gifs = res.data.data;
+      $scope.gifs = $scope.gifs.concat(res.data.data);
     }, function error(res) {
       console.log(res);
     });
