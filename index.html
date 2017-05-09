@@ -29,7 +29,7 @@
             </div>
         </form>
         <div ng-repeat="gif in giphyList" class="well">
-            <img src="{{ gif.Url }}" alt="another gif">
+            <img ng-src="{{ gif.images.downsized.url }}" alt="another gif">
         </div>
 </body>
 

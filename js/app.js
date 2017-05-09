@@ -17,7 +17,7 @@ giphyApp.controller('GiphySearch', ['$scope', '$http', function($scope, $http) {
         $http(req).then(function(response) {
             console.log('came back!')
             console.log(response)
-            $scope.giphyList = response.data.Search;
+            $scope.giphyList = response.data.data;
         });
     }
 
