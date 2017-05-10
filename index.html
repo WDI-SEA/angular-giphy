@@ -9,6 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
+    <script type="text/javascript" src="infinite-scroll-master/taggedInfiniteScroll.min.js"></script>
     <script src="js/app.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -28,8 +29,10 @@
                 <button type="submit" class="btn btn-primary">Search</button>
             </div>
         </form>
-        <div ng-repeat="gif in giphyList" class="well">
-            <img ng-src="{{ gif.images.downsized.url }}" alt="another gif">
+        <div tagged-infinite-scroll="getMore()">
+            <div ng-repeat="gif in giphyList" class="well">
+                <img ng-src="{{ gif.images.downsized.url }}" alt="another gif">
+            </div>
         </div>
 </body>
 
